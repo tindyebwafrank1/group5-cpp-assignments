@@ -16,41 +16,78 @@ Write a program that:
 - Determines which points fall within each buffer.
 - Returns the points contained in each buffer region*/
 
+
+
 #include <iostream>
-    #include <vector>
-        #include <cmath>
-            using namespace std;
+#include <cmath>
 
-                int main(){
-                        //Declarations
-                                double centerX, centerY;
-                                        vector<pair<double, double>> points;
-                                                vector<double> bufferSizes;
+using namespace std;
 
-                                                        //inputs
-                                                                cout << "Enter the center point coordinates (x y): ";
-                                                                        cin >> centerX >> centerY;
+int main() {
+    // 1. Get Center Point
+    string centerName;
+    double centerX, centerY;
 
-                                                                                // Example buffer sizes (can be modified)
-                                                                                        bufferSizes.push_back(1.0);
-                                                                                                bufferSizes.push_back(2.0);
-                                                                                                        bufferSizes.push_back(5.0);
+    cout << "Enter Center Point Name: ";
+    cin >> centerName;
+    cout << "Enter Center X: ";
+    cin >> centerX;
+    cout << "Enter Center Y: ";
+    cin >> centerY;
 
-                                                                                                                // Example points (can be modified)
-                                                                                                                        points.push_back({0.0, 0.0});
-                                                                                                                                points.push_back({3.0, 4.0});
-                                                                                                                                        points.push_back({6.0, 8.0});
+    // 2. Get Buffers
+    int numBuffers;
+    cout << "\nHow many buffer sizes? ";
+    cin >> numBuffers;
 
-                                                                                                                                                // Create buffers and determine which points fall within each
-                                                                                                                                                        for (double size : bufferSizes) {
-                                                                                                                                                                    cout << "Buffer of size " << size << ":" << endl;
-                                                                                                                                                                                for (const auto& point : points) {
-                                                                                                                                                                                                double distance = sqrt(pow(point.first - centerX, 2) + pow(point.second - centerY, 2));
-                                                                                                                                                                                                                if (distance <= size) {
-                                                                                                                                                                                                                                    cout << "  Point (" << point.first << ", " << point.second << ")" << endl;
-                                                                                                                                                                                                                                      }
-                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                                        }
+    double buffers[100]; // Array to hold up to 100 buffer radii
+    for (int i = 0; i < numBuffers; i++) {
+        cout << "Enter radius for Buffer " << (i + 1) << ": ";
+        cin >> buffers[i];
+    }
 
-                                                                                                                                                                                                                                                          o9                      return 0;
-                                                                                                                                                                                                                                                                                    }
+    // 3. Get Points to Test
+    int numPoints;
+    cout << "\nHow many points to test? ";
+    cin >> numPoints;
+
+    string pointNames[100];
+    double pointX[100];
+    double pointY[100];
+
+    for (int i = 0; i < numPoints; i++) {
+        cout << "\nEnter Point " << (i + 1) << " Name: ";
+        cin >> pointNames[i];
+        cout << "Enter X: ";
+        cin >> pointX[i];
+        cout << "Enter Y: ";
+        cin >> pointY[i];
+    }
+
+    // 4. Perform Analysis
+    
+    cout << "        \n RESULTS  \n                 " << endl;
+    
+
+    for (int b = 0; b < numBuffers; b++) {
+        double currentRadius = buffers[b];
+        int count = 0;
+
+        cout << "\n--- Checking Buffer Radius: " << currentRadius << " ---" << endl;
+
+        for (int p = 0; p < numPoints; p++) {
+            // Calculate distance using distance formula: sqrt((x2-x1)^2 + (y2-y1)^2)
+            double distance = sqrt(pow(pointX[p] - centerX, 2) + pow(pointY[p] - centerY, 2));
+
+            // Check if point falls within radius
+            if (distance <= currentRadius) {
+                cout << "Point " << pointNames[p] << " is INSIDE (Distance = " << distance << ")" << endl;
+                count++;
+            }
+        }
+
+        cout << "Total points in this buffer: " << count << endl;
+    }
+
+    return 0;
+}
