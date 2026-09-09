@@ -16,41 +16,41 @@ Write a program that:
 - Determines which points fall within each buffer.
 - Returns the points contained in each buffer region*/
 
-    #include <iostream>
+#include <iostream>
     #include <vector>
-    #include <cmath>
-    using namespace std;
+        #include <cmath>
+            using namespace std;
 
-    int main(){
-        //Declarations
-        double centerX, centerY;
-        vector<pair<double, double>> points;
-        vector<double> bufferSizes;
+                int main(){
+                        //Declarations
+                                double centerX, centerY;
+                                        vector<pair<double, double>> points;
+                                                vector<double> bufferSizes;
 
-        //inputs
-        cout << "Enter the center point coordinates (x y): ";
-        cin >> centerX >> centerY;
+                                                        //inputs
+                                                                cout << "Enter the center point coordinates (x y): ";
+                                                                        cin >> centerX >> centerY;
 
-        // Example buffer sizes (can be modified)
-        bufferSizes.push_back(1.0);
-        bufferSizes.push_back(2.0);
-        bufferSizes.push_back(5.0);
+                                                                                // Example buffer sizes (can be modified)
+                                                                                        bufferSizes.push_back(1.0);
+                                                                                                bufferSizes.push_back(2.0);
+                                                                                                        bufferSizes.push_back(5.0);
 
-        // Example points (can be modified)
-        points.push_back({0.0, 0.0});
-        points.push_back({3.0, 4.0});
-        points.push_back({6.0, 8.0});
+                                                                                                                // Example points (can be modified)
+                                                                                                                        points.push_back({0.0, 0.0});
+                                                                                                                                points.push_back({3.0, 4.0});
+                                                                                                                                        points.push_back({6.0, 8.0});
 
-        // Create buffers and determine which points fall within each
-        for (double size : bufferSizes) {
-            cout << "Buffer of size " << size << ":" << endl;
-            for (const auto& point : points) {
-                double distance = sqrt(pow(point.first - centerX, 2) + pow(point.second - centerY, 2));
-                if (distance <= size) {
-                    cout << "  Point (" << point.first << ", " << point.second << ")" << endl;
-                }
-            }
-        }
+                                                                                                                                                // Create buffers and determine which points fall within each
+                                                                                                                                                        for (double size : bufferSizes) {
+                                                                                                                                                                    cout << "Buffer of size " << size << ":" << endl;
+                                                                                                                                                                                for (const auto& point : points) {
+                                                                                                                                                                                                double distance = sqrt(pow(point.first - centerX, 2) + pow(point.second - centerY, 2));
+                                                                                                                                                                                                                if (distance <= size) {
+                                                                                                                                                                                                                                    cout << "  Point (" << point.first << ", " << point.second << ")" << endl;
+                                                                                                                                                                                                                                      }
+                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                                        }
 
-        return 0;
-    }
+                                                                                                                                                                                                                                                          o9                      return 0;
+                                                                                                                                                                                                                                                                                    }

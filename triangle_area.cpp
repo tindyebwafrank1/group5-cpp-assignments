@@ -3,7 +3,7 @@
 // The formula for computing the area of a triangle is s = (side1 + side2 + side3) / 2
 // Area = sqrt(s(s-side1)(s-side2)(s-side3))
 // Example: Enter three points for a triangle: 1.5, -3.4, 4.6, 5, 9.5, -3.4 
-// The area of the triangle is 33.6
+// The area of the triangle is 33.
 
 #include<iostream>
 #include<cmath>

@@ -32,56 +32,56 @@ using namespace std;
 
 int  main(){
     //Declarations
-    int status;
-    double income;
-    double tax = 0;
+        int status;
+            double income;
+                double tax = 0;
 
-    //inputs
-    cout << "(0-Resident, 1-Non-resident)" << endl;
-    cout << "Enter the residence status: ";
-    cin >> status;
+                    //inputs
+                        cout << "(0-Resident, 1-Non-resident)" << endl;
+                            cout << "Enter the residence status: ";
+                                cin >> status;
 
-    cout << "Enter the taxable income: ";
-    cin >> income;
+                                    cout << "Enter the taxable income: ";
+                                        cin >> income;
 
-    //Categories
-    if(status == 0){
-        if(income <= 2820000){
-            tax = 0;
-        }
-        else if(income <= 4020000){
-            tax = (income - 2820000) * 0.1;
-        }
-        else if(income <= 4920000){
-            tax = (income - 4020000) * 0.2 + 120000;
-        }
-        else if(income <= 120000000){
-            tax = (income - 4920000) * 0.3 + 300000;
-        }
-        else{
-            tax = (income - 4920000) * 0.3 + 300000 + (income - 120000000) * 0.1;
-        }
-    }
-    else if( status == 1){
-        if( income <= 2820000){
-            tax = income * 0.1;
-        }
-        else if(income <= 4020000){
-            tax = income * 0.1;
-        }
-        else if(income <= 4920000){
-            tax = (income - 4020000) * 0.2 + 402000;
-        }
-        else if(income <= 120000000){
-            tax = (income - 4920000) * 0.3 + 582000;
-        }
-        else{
-            tax = (income - 4920000) * 0.3 + 582000 + (income - 120000000) * 0.1;
-        }
-    }
+                                            //Categories
+                                                if(status == 0){
+                                                        if(income <= 2820000){
+                                                                    tax = 0;
+                                                                            }
+                                                                                    else if(income <= 4020000){
+                                                                                                tax = (income - 2820000) * 0.1;
+                                                                                                        }
+                                                                                                                else if(income <= 4920000){
+                                                                                                                            tax = (income - 4020000) * 0.2 + 120000;
+                                                                                                                                    }
+                                                                                                                                            else if(income <= 120000000){
+                                                                                                                                                        tax = (income - 4920000) * 0.3 + 300000;
+                                                                                                                                                                }
+                                                                                                                                                                        else{
+                                                                                                                                                                                    tax = (income - 4920000) * 0.3 + 300000 + (income - 120000000) * 0.1;
+                                                                                                                                                                                            }
+                                                                                                                                                                                                }
+                                                                                                                                                                                                    else if( status == 1){
+                                                                                                                                                                                                            if( income <= 2820000){
+                                                                                                                                                                                                                        tax = income * 0.1;
+                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                        else if(income <= 4020000){
+                                                                                                                                                                                                                                                    tax = income * 0.1;
+                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                    else if(income <= 4920000){
+                                                                                                                                                                                                                                                                                tax = (income - 4020000) * 0.2 + 402000;
+                                                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                                                                else if(income <= 120000000){
+                                                                                                                                                                                                                                                                                                            tax = (income - 4920000) * 0.3 + 582000;
+                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                            else{
+                                                                                                                                                                                                                                                                                                                                        tax = (income - 4920000) * 0.3 + 582000 + (income - 120000000) * 0.1;
+                                                                                                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                                                                                                                    }
 
-    //Output
-    cout << "Tax is " << tax << "." << endl;
+                                                                                                                                                                                                                                                                                                                                                        //Output
+                                                                                                                                                                                                                                                                                                                                                            cout << "Tax is " << tax << "." << endl;
 
-    return 0;
-}
+                                                                                                                                                                                                                                                                                                                                                                return 0;
+                                                                                                                                                                                                                                                                                                                                                                }
